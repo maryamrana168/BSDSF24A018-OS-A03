@@ -1,4 +1,4 @@
-
+\
 #include "shell.h"
 #include <fcntl.h>
 #include <ctype.h>
@@ -322,6 +322,7 @@ int handle_builtin(char** arglist) {
         return 1;
     }
 
+
     if (strcmp(arglist[0], "help") == 0) {
 
         printf("Built-in Commands:\n");
@@ -332,8 +333,18 @@ int handle_builtin(char** arglist) {
         printf("history - Display command history\n");
         printf("set     - Display shell variables\n");
 
+        printf("\nShell Variables:\n");
+        printf("NAME=value - Assign a value to a variable\n");
+        printf("set        - Display all shell variables\n");
+        printf("echo $NAME - Display a variable's value\n");
+
+        printf("\nExample:\n");
+        printf("MSG=\"Hello World\"\n");
+        printf("echo $MSG\n");
+
         return 1;
     }
+    
 
     if (strcmp(arglist[0], "history") == 0) {
         display_history();
